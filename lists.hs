@@ -1,3 +1,4 @@
+-- A few programs to check understanding on lists in Haskell
 -- length of a list
 len_list :: [Int] -> Int
 len_list [] = 0
