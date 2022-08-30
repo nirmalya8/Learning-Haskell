@@ -58,7 +58,18 @@ downup [x] = True
 downup (x:y:xs) = (x<y) && updown(y:xs)
 
 --Implementing the drop n l builtin function
-  drop2 n l
+drop2 n l
   | n<=0 || null l = l
   | otherwise = drop2 (n-1) (tail(l))
 saf l = tail(l)
+
+
+-- Find all even numbers in a list
+even_list :: [Int] -> [Int]
+even_list [] = []
+even_list (x:xs)
+  | is_even x = x:(even_list xs)
+  | otherwise = even_list xs
+  where
+    is_even :: Int -> Bool
+    is_even x = (mod x 2)==0

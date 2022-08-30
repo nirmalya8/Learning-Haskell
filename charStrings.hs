@@ -1,6 +1,5 @@
 -- A function capitalize to capitalize each letter
 import Data.Char
-
 capitalize :: Char -> Char
 capitalize ch
   | (ch>='a' && ch<='z') = chr(ord(ch)-(ord('a')-ord('A')))
