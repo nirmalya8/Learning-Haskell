@@ -28,3 +28,11 @@ checkconcat l = [x | y<-l, x<-y]
 -- Given a list of lists, extract all even length non empty lists
 extract :: [[Int]]->[[Int]]
 extract l = [x | x<-l,(mod (length x) 2 == 0), (length x>0)]
+
+-- The Sieve of Eratosthenes
+-- This is an algorithm in which numbers are taken from 2 onwards.
+-- Each multiple of the first element of the list is removed till\
+-- only primes are left.
+getPrimes = sieve[2..]
+  where
+  sieve (x:xs) = x:[y|y<-xs,(mod y x)>0]
