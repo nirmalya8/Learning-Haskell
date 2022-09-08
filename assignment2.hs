@@ -37,3 +37,22 @@ subSeq (x:xs) a
 
 subWord :: String -> String -> Bool
 subWord a b  = isInfixOf a b
+
+get_length :: [[Int]]->[Int]
+get_length x = map length x
+
+--(a) Define a function isMatrix :: [[a]] -> Bool that checks if 
+--a list of lists is a valid matrix (nonzero number of rows, each
+--of the same nonzero length).
+
+--Test cases:
+--isMatrix [] = False
+--isMatrix [[],[],[]] = False
+--isMatrix [[2,3], [4,5], [6,7]] = True 
+--isMatrix [[2,3,4,5,6,7]] = True
+isMatrix :: [[ a ]] -> Bool
+isMatrix [] = False
+isMatrix (r: rs ) = check ( length r) rs
+  where
+    check n [] = True
+    check n (r: rs ) = ( length r == n) && check n rs
